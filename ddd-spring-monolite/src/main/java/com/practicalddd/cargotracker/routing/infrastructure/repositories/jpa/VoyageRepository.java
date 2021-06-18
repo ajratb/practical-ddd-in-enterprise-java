@@ -1,0 +1,46 @@
+package com.practicalddd.cargotracker.routing.infrastructure.repositories.jpa;
+
+
+import com.practicalddd.cargotracker.routing.domain.model.aggregates.Voyage;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.util.List;
+import java.util.logging.Logger;
+
+/**
+ * Repository class for the Voyage Aggregate.
+ */
+@Repository
+public class VoyageRepository {
+
+    private static final long serialVersionUID = 1L;
+
+    private static final Logger logger = Logger.getLogger(
+            VoyageRepository.class.getName());
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+
+    /**
+     * Stores the Voyage Aggregate
+     * @param voyage
+     */
+    public void store(Voyage voyage) {
+        entityManager.persist(voyage);
+        entityManager.flush();
+    }
+
+    /**
+     * Find all Voyage Aggregates
+     * @return
+     */
+    public List<Voyage> findAll() {
+        return entityManager.createNamedQuery("Voyage.findAll", Voyage.class)
+                .getResultList();
+    }
+
+
+}

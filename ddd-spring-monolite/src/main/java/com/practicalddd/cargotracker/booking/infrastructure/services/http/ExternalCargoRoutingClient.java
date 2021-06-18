@@ -4,6 +4,7 @@ import com.practicalddd.cargotracker.shareddomain.model.TransitPath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -11,7 +12,7 @@ import org.springframework.web.util.UriComponentsBuilder;
  * Type safe Rest client for the Routing Service API
  */
 
-@Component
+@Service
 public class ExternalCargoRoutingClient {
 
     @Autowired
@@ -19,7 +20,7 @@ public class ExternalCargoRoutingClient {
 
     public TransitPath findOptimalRoute(String origin, String destination, String arrivalDeadline) {
         final String REST_URI
-                = "http://localhost:9080/cargotracker/serviceapi/voyageRouting/optimalRoute";
+                = "http://localhost:8080/voyageRouting/optimalRoute";
 
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(REST_URI)
                 .queryParam("origin", origin)

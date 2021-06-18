@@ -2,6 +2,7 @@ package com.practicalddd.cargotracker.booking.domain.model.valueobjects;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class CargoItinerary {
     public static final CargoItinerary EMPTY_ITINERARY = new CargoItinerary();
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "cargo_id")
-    private List<Leg> legs = Collections.emptyList();
+    private List<Leg> legs = new ArrayList<>();//Collections.emptyList();
 
     public CargoItinerary() {
         // Nothing to initialize.
@@ -23,5 +24,10 @@ public class CargoItinerary {
 
     public List<Leg> getLegs() {
         return Collections.unmodifiableList(legs);
+    }
+
+    public void copyLegs(CargoItinerary source){
+        legs.clear();
+        legs.addAll(source.getLegs());
     }
 }

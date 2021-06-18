@@ -44,7 +44,7 @@ public class ExternalCargoRoutingService {
         for (TransitEdge edge : transitPath.getTransitEdges()) {
             legs.add(toLeg(edge));
         }
-
+        System.out.println("******* Legs size: "+legs.size());
         return new CargoItinerary(legs);
 
     }

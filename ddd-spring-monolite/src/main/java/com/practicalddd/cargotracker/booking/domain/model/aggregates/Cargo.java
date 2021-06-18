@@ -7,8 +7,6 @@ import com.practicalddd.cargotracker.booking.domain.model.valueobjects.*;
 import javax.persistence.*;
 
 
-
-
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Cargo.findAll",
@@ -16,7 +14,7 @@ import javax.persistence.*;
         @NamedQuery(name = "Cargo.findByBookingId",
                 query = "Select c from Cargo c where c.bookingId = :bookingId"),
         @NamedQuery(name = "Cargo.getAllBookingIds",
-                query = "Select c.bookingId from Cargo c") })
+                query = "Select c.bookingId from Cargo c")})
 public class Cargo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +31,7 @@ public class Cargo {
     private CargoItinerary itinerary; //Itinerary Assigned to the Cargo
     @Embedded
     private Delivery delivery; // Checks the delivery progress of the cargo against the actual Route Specification and Itinerary
+
     /**
      * Default Constructor
      */
@@ -43,7 +42,6 @@ public class Cargo {
     /**
      * Constructor Command Handler for a new Cargo booking. Sets the state of the Aggregate
      * and registers the Cargo Booked Event
-     *
      */
     public Cargo(BookCargoCommand bookCargoCommand) {
 
@@ -77,13 +75,14 @@ public class Cargo {
     }
 
 
-    public BookingAmount getBookingAmount(){
+    public BookingAmount getBookingAmount() {
         return this.bookingAmount;
     }
 
-    public void setBookingAmount(BookingAmount bookingAmount){
+    public void setBookingAmount(BookingAmount bookingAmount) {
         this.bookingAmount = bookingAmount;
     }
+
     /**
      * @return The itinerary
      */
@@ -91,17 +90,20 @@ public class Cargo {
         return this.itinerary;
     }
 
-    public void setItinerary(CargoItinerary itinerary){
+    public void setItinerary(CargoItinerary itinerary) {
         this.itinerary = itinerary;
     }
 
 
     /**
      * Assigns Route to the Cargo
+     *
      * @param cargoItinerary
      */
     public void assignToRoute(CargoItinerary cargoItinerary) {
-        this.itinerary = cargoItinerary;
+        if (this.itinerary == null)
+            this.itinerary = cargoItinerary;
+        else this.itinerary.copyLegs(cargoItinerary);
     }
 
 
