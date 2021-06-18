@@ -5,8 +5,8 @@ import com.practicalddd.cargotracker.routing.domain.model.aggregates.Voyage;
 import com.practicalddd.cargotracker.routing.infrastructure.repositories.jpa.VoyageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
