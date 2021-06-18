@@ -3,20 +3,15 @@ package com.practicalddd.cargotracker.booking.interfaces.rest;
 import com.practicalddd.cargotracker.booking.application.internal.commandservices.CargoBookingCommandService;
 import com.practicalddd.cargotracker.booking.interfaces.rest.dto.RouteCargoResource;
 import com.practicalddd.cargotracker.booking.interfaces.rest.transform.RouteCargoCommandDTOAssembler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-@Path("/cargorouting")
-@ApplicationScoped
+@RestController
 public class CargoRoutingController {
 
-    @Inject
+    @Autowired
     private CargoBookingCommandService cargoBookingCommandService; // Application Service Dependency
 
 
@@ -24,17 +19,11 @@ public class CargoRoutingController {
      * POST method to route a cargo
      * @param routeCargoResource
      */
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response routeCargo(RouteCargoResource routeCargoResource){
+    @PostMapping("/cargorouting")
+//    @Produces(MediaType.APPLICATION_JSON)
+    public String routeCargo(@RequestBody RouteCargoResource routeCargoResource){
         cargoBookingCommandService.assignRouteToCargo(
                 RouteCargoCommandDTOAssembler.toCommandFromDTO(routeCargoResource));
-
-        final Response returnValue = Response.ok()
-                .entity("Cargo Routed")
-                .build();
-        return returnValue;
+        return "Cargo Routed";
     }
-
-
 }

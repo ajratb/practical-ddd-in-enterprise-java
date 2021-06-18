@@ -3,7 +3,7 @@ package com.practicalddd.cargotracker.booking.domain.model.valueobjects;
 import com.practicalddd.cargotracker.booking.domain.model.entities.Location;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Embeddable
@@ -17,7 +17,7 @@ public class RouteSpecification {
     private Location destination;
     @Temporal(TemporalType.DATE)
     @Column(name = "spec_arrival_deadline")
-    @NotNull
+//    @NotNull
     private Date arrivalDeadline;
 
     public RouteSpecification() {

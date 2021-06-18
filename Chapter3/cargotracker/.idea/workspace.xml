@@ -4,38 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0df8ebaf-61f1-43eb-a7a7-daeb309a960a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/CargoMainApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/application/internal/commandservices/CargoBookingCommandService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/application/internal/outboundservices/acl/ExternalCargoRoutingService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/application/internal/queryservices/CargoBookingQueryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/aggregates/BookingId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/aggregates/Cargo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/commands/BookCargoCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/commands/RouteCargoCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/entities/Location.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/BookingAmount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/CargoHandlingActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/CargoItinerary.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/Delivery.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/LastCargoHandledEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/Leg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/RouteSpecification.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/RoutingStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/TransportStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/domain/model/valueobjects/Voyage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/infrastructure/repositories/jpa/CargoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/infrastructure/services/http/ExternalCargoRoutingClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/CargoBookingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/CargoRoutingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/dto/BookCargoResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/dto/RouteCargoResource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/transform/BookCargoCommandDTOAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/practicalddd/cargotracker/booking/interfaces/rest/transform/RouteCargoCommandDTOAssembler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ddd-spring-monolite/src/main/java/ru/wts/ddd/sb/DddSpringMonoliteApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ddd-spring-monolite/src/main/java/com/practicalddd/cargotracker/DddSpringMonoliteApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ddd-spring-monolite/src/test/java/ru/wts/ddd/sb/DddSpringMonoliteApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../ddd-spring-monolite/src/test/java/com/practicalddd/cargotracker/DddSpringMonoliteApplicationTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="0df8ebaf-61f1-43eb-a7a7-daeb309a960a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

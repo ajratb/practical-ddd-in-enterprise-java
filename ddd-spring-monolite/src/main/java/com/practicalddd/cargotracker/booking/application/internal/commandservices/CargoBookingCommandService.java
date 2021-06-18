@@ -11,6 +11,7 @@ import com.practicalddd.cargotracker.shareddomain.events.CargoBookedEvent;
 import com.practicalddd.cargotracker.shareddomain.events.CargoRoutedEvent;
 import com.practicalddd.cargotracker.shareddomain.events.CargoRoutedEventData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,11 +25,14 @@ public class CargoBookingCommandService {
     @Autowired
     private CargoRepository cargoRepository; // Outbound Service to connect to the Booking Bounded Context MySQL Database Instance
 
-    @Autowired
-    private Event<CargoBookedEvent> cargoBookedEventControl;
+//    @Autowired
+//    private Event<CargoBookedEvent> cargoBookedEventControl;
+//
+//    @Autowired
+//    private Event<CargoRoutedEvent> cargoRoutedEventControl; // Event that needs to be raised when the Cargo is Booked
 
     @Autowired
-    private Event<CargoRoutedEvent> cargoRoutedEventControl; // Event that needs to be raised when the Cargo is Booked
+    private ApplicationEventPublisher publisher;
 
     @Autowired
     private ExternalCargoRoutingService externalCargoRoutingService;
@@ -44,11 +48,10 @@ public class CargoBookingCommandService {
         Cargo cargo = new Cargo(bookCargoCommand);
         cargoRepository.store(cargo); //Store the Cargo
 
-        CargoBookedEvent cargoBookedEvent = new CargoBookedEvent();
-        cargoBookedEvent.setId(bookingId); //Set the content of the event
-        cargoBookedEventControl.fire(cargoBookedEvent);
-
-
+        CargoBookedEvent cargoBookedEvent = new CargoBookedEvent(bookingId);
+//        cargoBookedEvent.setId(bookingId); //Set the content of the event
+        publisher.publishEvent(cargoBookedEvent);
+//        cargoBookedEventControl.fire(cargoBookedEvent);
         return new BookingId(bookingId);
     }
 
@@ -66,11 +69,12 @@ public class CargoBookingCommandService {
         cargo.assignToRoute(cargoItinerary);
         cargoRepository.store(cargo);
 
-        CargoRoutedEvent cargoRoutedEvent = new CargoRoutedEvent();
+
         CargoRoutedEventData eventData = new CargoRoutedEventData();
         eventData.setBookingId(routeCargoCommand.getCargoBookingId());
-        cargoRoutedEvent.setContent(eventData);
-        cargoRoutedEventControl.fire(cargoRoutedEvent);
+        CargoRoutedEvent cargoRoutedEvent = new CargoRoutedEvent(eventData);
+//        cargoRoutedEvent.setContent(eventData);
+        publisher.publishEvent(cargoRoutedEvent);
     }
 
 

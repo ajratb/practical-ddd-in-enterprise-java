@@ -1,13 +1,11 @@
 package com.practicalddd.cargotracker.booking.infrastructure.services.http;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.ws.rs.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.MediaType;
-
 import com.practicalddd.cargotracker.shareddomain.model.TransitPath;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  * Type safe Rest client for the Routing Service API
@@ -16,20 +14,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class ExternalCargoRoutingClient {
 
-    public TransitPath findOptimalRoute(String origin, String destination, String arrivalDeadline){
+    @Autowired
+    private RestTemplate restTemplate;
+
+    public TransitPath findOptimalRoute(String origin, String destination, String arrivalDeadline) {
         final String REST_URI
                 = "http://localhost:9080/cargotracker/serviceapi/voyageRouting/optimalRoute";
 
-        Client client = ClientBuilder.newClient();
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(REST_URI)
+                .queryParam("origin", origin)
+                .queryParam("destination", destination)
+                .queryParam("deadline", arrivalDeadline);
 
-        return client
-                .target(REST_URI)
-                .queryParam("origin",origin)
-                .queryParam("destination",destination)
-                .queryParam("deadline",arrivalDeadline)
-                .request(MediaType.APPLICATION_JSON)
-                .get(TransitPath.class);
+        ResponseEntity<TransitPath> response =
+                restTemplate.getForEntity(builder.build().encode().toUri(), TransitPath.class);
 
+        return response.getBody();
     }
-
 }

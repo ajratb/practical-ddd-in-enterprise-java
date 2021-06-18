@@ -4,7 +4,7 @@ package com.practicalddd.cargotracker.booking.domain.model.valueobjects;
 import com.practicalddd.cargotracker.booking.domain.model.entities.Location;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -23,11 +23,11 @@ public class Leg {
     private Location unloadLocation;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "load_time")
-    @NotNull
+    //@NotNull
     private Date loadTime;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "unload_time")
-    @NotNull
+    //@NotNull
     private Date unloadTime;
 
     public Leg(){}

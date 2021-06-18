@@ -23,7 +23,7 @@ public class CargoBookingQueryService {
      * Find all Cargos
      * @return List<Cargo>
      */
-    @Autowired
+    //@Autowired
     public List<Cargo> findAll(){
         return cargoRepository.findAll();
     }

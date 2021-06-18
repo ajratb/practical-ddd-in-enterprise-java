@@ -4,39 +4,31 @@ import com.practicalddd.cargotracker.booking.application.internal.commandservice
 import com.practicalddd.cargotracker.booking.domain.model.aggregates.BookingId;
 import com.practicalddd.cargotracker.booking.interfaces.rest.dto.BookCargoResource;
 import com.practicalddd.cargotracker.booking.interfaces.rest.transform.BookCargoCommandDTOAssembler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-@Path("/cargobooking")
-@ApplicationScoped
+@RestController
 public class CargoBookingController {
 
 
-    @Inject
+    @Autowired
     private CargoBookingCommandService cargoBookingCommandService; // Application Service Dependency
 
     /**
      * POST method to book a cargo
+     *
      * @param bookCargoResource
      */
 
-    @POST
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response bookCargo(BookCargoResource bookCargoResource){
-        System.out.println("****Book Cargo"+cargoBookingCommandService);
-        BookingId bookingId  = cargoBookingCommandService.bookCargo(
+    @PostMapping("/cargobooking")
+//    @Produces(MediaType.APPLICATION_JSON)
+    public BookingId bookCargo(@RequestBody BookCargoResource bookCargoResource) {
+        System.out.println("****Book Cargo" + cargoBookingCommandService);
+        BookingId bookingId = cargoBookingCommandService.bookCargo(
                 BookCargoCommandDTOAssembler.toCommandFromDTO(bookCargoResource));
-
-        final Response returnValue = Response.ok()
-                .entity(bookingId)
-                .build();
-        return returnValue;
+        return bookingId;
     }
 
 
