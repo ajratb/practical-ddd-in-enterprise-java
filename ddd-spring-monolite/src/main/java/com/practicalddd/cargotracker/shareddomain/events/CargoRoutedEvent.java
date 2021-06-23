@@ -11,8 +11,9 @@ public class CargoRoutedEvent extends ApplicationEvent {
     private CargoRoutedEventData cargoRoutedEventData;
     public CargoRoutedEvent(CargoRoutedEventData cargoRoutedEventData){
         super(cargoRoutedEventData);
+        this.cargoRoutedEventData = cargoRoutedEventData;
     }
-    public void setContent(CargoRoutedEventData cargoRoutedEventData) { this.cargoRoutedEventData = cargoRoutedEventData; }
+//    public void setContent(CargoRoutedEventData cargoRoutedEventData) { this.cargoRoutedEventData = cargoRoutedEventData; }
     public CargoRoutedEventData getContent() {
         return cargoRoutedEventData;
     }
