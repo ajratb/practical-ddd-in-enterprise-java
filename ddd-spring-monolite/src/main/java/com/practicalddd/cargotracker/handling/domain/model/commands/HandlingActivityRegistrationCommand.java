@@ -13,7 +13,8 @@ public class HandlingActivityRegistrationCommand {
     private String unLocode;
     private String handlingType;
 
-    public HandlingActivityRegistrationCommand(String bookingId, String voyageNumber, String unLocode, String handlingType, Date completionTime){
+    public HandlingActivityRegistrationCommand(
+            String bookingId, String voyageNumber, String unLocode, String handlingType, Date completionTime) {
         this.setCompletionTime(completionTime);
         this.setBookingId(bookingId);
         this.setVoyageNumber(voyageNumber);
