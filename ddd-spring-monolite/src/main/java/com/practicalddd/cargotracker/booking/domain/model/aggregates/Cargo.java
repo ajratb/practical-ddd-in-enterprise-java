@@ -23,7 +23,7 @@ public class Cargo {
     private BookingId bookingId; // Aggregate Identifier
     @Embedded
     private BookingAmount bookingAmount; //Booking Amount
-    @Embedded
+    @Embedded//?@ManyToOne - would it be useful to point?
     private Location origin; //Origin Location of the Cargo
     @Embedded
     private RouteSpecification routeSpecification; //Route Specification of the Cargo
@@ -94,6 +94,7 @@ public class Cargo {
         this.itinerary = itinerary;
     }
 
+    // *********** Business methods ***********
 
     /**
      * Assigns Route to the Cargo
@@ -106,5 +107,8 @@ public class Cargo {
         else this.itinerary.copyLegs(cargoItinerary);
     }
 
-
+    //from book
+//    public void deriveDeliveryProgress() {
+//        //Implementation goes here
+//    }
 }

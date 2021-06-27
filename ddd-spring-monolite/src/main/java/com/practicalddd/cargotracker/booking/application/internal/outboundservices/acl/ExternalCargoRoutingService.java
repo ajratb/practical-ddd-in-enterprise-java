@@ -4,7 +4,7 @@ package com.practicalddd.cargotracker.booking.application.internal.outboundservi
 
 import com.practicalddd.cargotracker.booking.domain.model.entities.Location;
 import com.practicalddd.cargotracker.booking.domain.model.valueobjects.CargoItinerary;
-import com.practicalddd.cargotracker.booking.domain.model.valueobjects.Leg;
+import com.practicalddd.cargotracker.booking.domain.model.entities.Leg;
 import com.practicalddd.cargotracker.booking.domain.model.valueobjects.RouteSpecification;
 import com.practicalddd.cargotracker.booking.domain.model.valueobjects.Voyage;
 import com.practicalddd.cargotracker.booking.infrastructure.services.http.ExternalCargoRoutingClient;

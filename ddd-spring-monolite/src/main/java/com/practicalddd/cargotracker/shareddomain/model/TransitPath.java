@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+@XmlRootElement//is this for what?
 public class TransitPath implements Serializable {
 
     private List<TransitEdge> transitEdges;

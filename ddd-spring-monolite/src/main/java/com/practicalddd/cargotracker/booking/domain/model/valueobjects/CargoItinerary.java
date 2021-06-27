@@ -1,6 +1,8 @@
 package com.practicalddd.cargotracker.booking.domain.model.valueobjects;
 
 
+import com.practicalddd.cargotracker.booking.domain.model.entities.Leg;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collections;
