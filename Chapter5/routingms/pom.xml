@@ -26,6 +26,7 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+		<!--Provides transitive vulnerable dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -40,6 +41,7 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream</artifactId>
+<!--			<version>4.0.2</version>-->
 			<!--Provides transitive vulnerable dependency maven:org.springframework.cloud:spring-cloud-function-context:3.0.14.RELEASE-->
 			<exclusions>
 				<exclusion>
