@@ -1,4 +1,4 @@
-package com.practicalddd.cargotracker;
+package com.practicalddd.cargotracker.shareddomain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,6 +7,7 @@ import java.util.Date;
  * Represents an edge in a path through a graph, describing the route of a
  * cargo.
  */
+@SuppressWarnings("unused")
 public class TransitEdge implements Serializable {
 
     private String voyageNumber;

@@ -1,7 +1,7 @@
 package com.practicalddd.cargotracker.routingms.application.internal;
 
-import com.practicalddd.cargotracker.TransitEdge;
-import com.practicalddd.cargotracker.TransitPath;
+import com.practicalddd.cargotracker.shareddomain.TransitEdge;
+import com.practicalddd.cargotracker.shareddomain.TransitPath;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

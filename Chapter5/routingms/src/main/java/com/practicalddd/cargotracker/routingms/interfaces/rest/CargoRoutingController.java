@@ -1,6 +1,6 @@
 package com.practicalddd.cargotracker.routingms.interfaces.rest;
 
-import com.practicalddd.cargotracker.TransitPath;
+import com.practicalddd.cargotracker.shareddomain.TransitPath;
 import com.practicalddd.cargotracker.routingms.application.internal.CargoRoutingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

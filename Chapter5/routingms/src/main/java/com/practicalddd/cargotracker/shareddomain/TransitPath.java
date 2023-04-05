@@ -1,11 +1,11 @@
-package com.practicalddd.cargotracker;
+package com.practicalddd.cargotracker.shareddomain;
 
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement
+//@XmlRootElement
 public class TransitPath implements Serializable {
 
     private List<TransitEdge> transitEdges;
@@ -14,10 +14,12 @@ public class TransitPath implements Serializable {
         this.transitEdges = new ArrayList<>();
     }
 
+    @SuppressWarnings("unused")
     public TransitPath(List<TransitEdge> transitEdges) {
         this.transitEdges = transitEdges;
     }
 
+    @SuppressWarnings("unused")
     public List<TransitEdge> getTransitEdges() {
         return transitEdges;
     }
