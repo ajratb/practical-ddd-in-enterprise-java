@@ -10,25 +10,13 @@ import org.springframework.web.bind.annotation.*;
 public class CargoRoutingController {
 
 
-    private CargoRoutingService cargoRoutingService; // Application Service Dependency
+    private final CargoRoutingService cargoRoutingService; // Application Service Dependency
 
-    /**
-     * Provide the dependencies
-     * @param cargoRoutingService
-     */
     public CargoRoutingController(CargoRoutingService cargoRoutingService){
         this.cargoRoutingService = cargoRoutingService;
     }
 
-
-    /**
-     *
-     * @param originUnLocode
-     * @param destinationUnLocode
-     * @param deadline
-     * @return TransitPath - The optimal route for a Route Specification
-     */
-
+    @SuppressWarnings("MVCPathVariableInspection")
     @GetMapping(path = "/optimalRoute")
     @ResponseBody
     public TransitPath findOptimalRoute(
@@ -36,9 +24,6 @@ public class CargoRoutingController {
              @PathVariable("destination") String destinationUnLocode,
              @PathVariable("deadline") String deadline) {
 
-        TransitPath transitPath = cargoRoutingService.findOptimalRoute(originUnLocode,destinationUnLocode,deadline);
-
-        return transitPath;
-
+        return cargoRoutingService.findOptimalRoute(originUnLocode,destinationUnLocode,deadline);
     }
 }
